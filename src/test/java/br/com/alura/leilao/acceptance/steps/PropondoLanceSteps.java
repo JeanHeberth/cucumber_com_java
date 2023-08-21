@@ -56,7 +56,16 @@ public class PropondoLanceSteps {
     public void os_lances_são_aceitos() {
         Assert.assertEquals(2, leilao.getLances().size());
         Assert.assertEquals(BigDecimal.TEN, leilao.getLances().get(0).getValor());
-        Assert.assertEquals(new BigDecimal ("15.0"), leilao.getLances().get(1).getValor());
+        Assert.assertEquals(new BigDecimal("15.0"), leilao.getLances().get(1).getValor());
     }
+
+    @Dado("um lance de {double} reais do usuário {string}")
+    public void um_lance_de_reais_do_usuário_fulano(Double valor, String nomeDoUsuario) {
+        System.out.println(valor);
+        System.out.println(nomeDoUsuario);
+    }
+
+
+
 
 }
