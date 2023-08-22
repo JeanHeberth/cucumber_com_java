@@ -13,11 +13,11 @@ import org.junit.Assert;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class PropondoLanceSteps {
 
     private Lance lance;
-
     private Leilao leilao;
     private ArrayList<Lance> lista;
 
@@ -68,22 +68,22 @@ public class PropondoLanceSteps {
     @Dado("um lance inválido de {double} reais e nome do usuário {string}")
     public void um_lance_inválido_de_reais(Double valor, String nomeDoUsuario) {
         this.lance = new Lance(new BigDecimal(valor));
-        System.out.println(nomeDoUsuario);
     }
 
     @Entao("o lance não é aceito")
     public void o_lance_não_é_aceito() {
         Assert.assertEquals(0, leilao.getLances().size());
-//        System.out.println(leilao.getLances().size());
     }
 
     @Dado("dois lances")
     public void dois_lances(DataTable dataTable) {
-        List<String> valores = dataTable.asList();
-        for (String string : valores){
-            System.out.println(string);
+        List<Map<String, String>> valores = dataTable.asMaps();
+        for (Map<String, String> mapa : valores) {
+            String valor = mapa.get("valor");
+            String nomeDoUsuario = mapa.get("nomeDoUsuario");
+            Lance lance = new Lance(new Usuario(nomeDoUsuario), new BigDecimal(valor));
+            lista.add(lance);
         }
-
     }
 
     @Entao("o segundo lance não é aceito")
@@ -91,6 +91,4 @@ public class PropondoLanceSteps {
         Assert.assertEquals(1, leilao.getLances().size());
         Assert.assertEquals(this.lista.get(0).getValor(), leilao.getLances().get(0).getValor());
     }
-
-
 }

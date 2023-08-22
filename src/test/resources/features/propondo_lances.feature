@@ -25,8 +25,9 @@ Funcionalidade: : Propondo lances ao leilão
 
   Cenário: Propondo uma sequência de lances
     Dado dois lances
-      | valor | nomeDoUsuario   |
-      | 0     | Jean_Heberth    |
-      | -1    | Jessica_Jasmine |
+      | valor | nomeDoUsuario |
+      | 10.0  | Jean_Heberth  |
+      | 15.0  | Jean_Heberth  |
+      | 18    | Jean_Heberth  |
     Quando propoe vários lances ao leilao
     Entao o segundo lance não é aceito
