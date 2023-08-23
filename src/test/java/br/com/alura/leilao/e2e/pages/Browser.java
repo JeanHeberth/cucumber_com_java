@@ -2,6 +2,7 @@ package br.com.alura.leilao.e2e.pages;
 
 import java.util.concurrent.TimeUnit;
 
+import org.apache.tomcat.jni.Time;
 import org.openqa.selenium.WebDriver;
 
 public class Browser {

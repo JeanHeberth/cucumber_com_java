@@ -1,5 +1,5 @@
 # language: pt
-Funcionalidade: : Propondo lances ao leilão
+Funcionalidade: Propondo lances ao leilão
 
   Cenário: Propondo um unico lance valido
     Dado um lance valido
